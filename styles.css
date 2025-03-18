@@ -17,14 +17,14 @@
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   .glossary-tooltip {
-    background: #2d333b;
+    background: #1c2128;
     border-color: #444c56;
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    color: #adbac7;
+    color: #cdd9e5;
   }
   
   .glossary-tooltip p {
-    color: #768390;
+    color: #adbac7;
   }
   
   .glossary-link {
