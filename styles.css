@@ -14,6 +14,24 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .glossary-tooltip {
+    background: #2d333b;
+    border-color: #444c56;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    color: #adbac7;
+  }
+  
+  .glossary-tooltip p {
+    color: #768390;
+  }
+  
+  .glossary-link {
+    border-bottom-color: #539bf5;
+  }
+}
+
 .glossary-tooltip.visible {
   display: block;
   animation: fadeIn 0.2s ease-in-out;
