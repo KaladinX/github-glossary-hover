@@ -6,8 +6,28 @@
   --tooltip-shadow: rgba(140, 149, 159, 0.2);
 }
 
-/* Dark theme variables */
+/* Dark theme variables - system preference */
 @media (prefers-color-scheme: dark) {
+  :root {
+    --tooltip-bg: #2d333b;
+    --tooltip-text: #adbac7;
+    --tooltip-border: #444c56;
+    --tooltip-shadow: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Dark theme variables - Firefox dark theme */
+@media (color-scheme: dark) {
+  :root {
+    --tooltip-bg: #2d333b;
+    --tooltip-text: #adbac7;
+    --tooltip-border: #444c56;
+    --tooltip-shadow: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Additional check for dark background */
+@media (light-level: dim) {
   :root {
     --tooltip-bg: #2d333b;
     --tooltip-text: #adbac7;
@@ -96,4 +116,13 @@
   margin-bottom: 8px;
   font-weight: 600;
   color: var(--tooltip-text) !important;
+}
+
+/* Remove old unused styles */
+.glossary-tooltip,
+.glossary-tooltip.visible,
+.glossary-tooltip h3,
+.glossary-tooltip p,
+.glossary-link {
+  display: none;
 } 
