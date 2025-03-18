@@ -22,5 +22,5 @@
   "web_accessible_resources": [
     "styles.css"
   ],
-  "content_security_policy": "script-src 'self' https://docs.github.com; object-src 'self'"
+  "content_security_policy": "script-src 'self'; object-src 'self';"
 } 
