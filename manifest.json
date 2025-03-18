@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "GitHub Glossary Hover",
+  "version": "1.0",
+  "description": "Shows GitHub glossary definitions in a floating panel when hovering over glossary links",
+  "permissions": [
+    "activeTab",
+    "*://*.github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.github.com/*",
+        "https://docs.github.com/*"
+      ],
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "styles.css"
+  ],
+  "content_security_policy": "script-src 'self' https://docs.github.com; object-src 'self'"
+} 
