@@ -72,9 +72,9 @@
   border-radius: 6px;
   font-size: 14px;
   line-height: 1.5;
-  background-color: var(--tooltip-bg);
-  color: var(--tooltip-text);
-  border: 1px solid var(--tooltip-border);
+  background-color: var(--tooltip-bg) !important;
+  color: var(--tooltip-text) !important;
+  border: 1px solid var(--tooltip-border) !important;
   box-shadow: 0 8px 24px var(--tooltip-shadow);
   pointer-events: none;
   opacity: 0;
@@ -88,11 +88,12 @@
 .github-glossary-tooltip p {
   margin: 0;
   padding: 0;
+  color: var(--tooltip-text) !important;
 }
 
 .github-glossary-tooltip strong {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--tooltip-text);
+  color: var(--tooltip-text) !important;
 } 

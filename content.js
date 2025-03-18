@@ -2,7 +2,7 @@
 function init() {
   // Create tooltip element
   const tooltip = document.createElement('div');
-  tooltip.className = 'glossary-tooltip';
+  tooltip.className = 'github-glossary-tooltip';
   document.body.appendChild(tooltip);
 
   // Cache for glossary definitions
@@ -91,38 +91,36 @@ function init() {
     }
   }
 
-  // Function to position tooltip
-  function positionTooltip(event) {
-    const x = event.clientX;
-    const y = event.clientY;
-    
-    tooltip.style.left = `${x + 15}px`;
-    tooltip.style.top = `${y + 15}px`;
-    
-    // Ensure tooltip stays within viewport
-    const rect = tooltip.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    if (rect.right > viewportWidth) {
-      tooltip.style.left = `${x - rect.width - 15}px`;
-    }
-    if (rect.bottom > viewportHeight) {
-      tooltip.style.top = `${y - rect.height - 15}px`;
-    }
-  }
-
   // Function to show tooltip
   async function showTooltip(event, term) {
     const definition = await fetchGlossaryDefinition(term);
     if (!definition) return;
 
-    tooltip.innerHTML = `
-      <h3>${definition.title}</h3>
-      <p>${definition.description}</p>
-    `;
+    tooltip.innerHTML = `<strong>${term}</strong><p>${definition.description}</p>`;
     tooltip.classList.add('visible');
-    positionTooltip(event);
+    
+    // Position tooltip near cursor
+    const x = event.clientX + 10;
+    const y = event.clientY + 10;
+    
+    // Keep tooltip within viewport
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    let finalX = x;
+    let finalY = y;
+    
+    if (x + tooltipRect.width > viewportWidth) {
+        finalX = viewportWidth - tooltipRect.width - 10;
+    }
+    
+    if (y + tooltipRect.height > viewportHeight) {
+        finalY = viewportHeight - tooltipRect.height - 10;
+    }
+    
+    tooltip.style.left = `${finalX}px`;
+    tooltip.style.top = `${finalY}px`;
   }
 
   // Function to hide tooltip
@@ -151,9 +149,6 @@ function init() {
       link.addEventListener('mouseenter', (event) => {
         showTooltip(event, term);
       });
-
-      // Update tooltip position on mouse move
-      link.addEventListener('mousemove', positionTooltip);
 
       // Hide tooltip when mouse leaves
       link.addEventListener('mouseleave', hideTooltip);
