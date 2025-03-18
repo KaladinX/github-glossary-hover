@@ -1,3 +1,21 @@
+/* Base theme variables */
+:root {
+  --tooltip-bg: #ffffff;
+  --tooltip-text: #24292f;
+  --tooltip-border: #d0d7de;
+  --tooltip-shadow: rgba(140, 149, 159, 0.2);
+}
+
+/* Dark theme variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tooltip-bg: #2d333b;
+    --tooltip-text: #adbac7;
+    --tooltip-border: #444c56;
+    --tooltip-shadow: rgba(0, 0, 0, 0.4);
+  }
+}
+
 .glossary-tooltip {
   position: fixed;
   background: #ffffff;
@@ -44,4 +62,37 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.github-glossary-tooltip {
+  position: fixed;
+  z-index: 100000;
+  max-width: 400px;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  border: 1px solid var(--tooltip-border);
+  box-shadow: 0 8px 24px var(--tooltip-shadow);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.github-glossary-tooltip.visible {
+  opacity: 1;
+}
+
+.github-glossary-tooltip p {
+  margin: 0;
+  padding: 0;
+}
+
+.github-glossary-tooltip strong {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--tooltip-text);
 } 
