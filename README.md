@@ -6,6 +6,7 @@ A Firefox extension that displays GitHub glossary definitions in a floating pane
 - Shows definitions instantly on hover
 - Works on GitHub.com and GitHub documentation pages
 - Improves documentation reading experience
+- Default light mode display (note: currently does not auto-adjust to browser dark mode)
 
 ## Installation
 Currently in development. To test locally:
@@ -20,6 +21,10 @@ After installation, you may need to:
 2. Click the gear/settings icon
 3. Enable permissions for "Access your data for github.com"
 4. Refresh any open GitHub pages
+
+## Known Limitations
+- The floating panel currently displays in light mode only, regardless of browser theme settings
+- Future updates may include dark mode support
 
 ## Development
 This extension is built using vanilla JavaScript and CSS.
