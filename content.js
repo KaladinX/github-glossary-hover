@@ -2,7 +2,7 @@
 function init() {
   // Create tooltip element
   const tooltip = document.createElement('div');
-  tooltip.className = 'github-glossary-tooltip';
+  tooltip.className = 'glossary-tooltip';
   document.body.appendChild(tooltip);
 
   // Cache for glossary definitions
@@ -96,7 +96,7 @@ function init() {
     const definition = await fetchGlossaryDefinition(term);
     if (!definition) return;
 
-    tooltip.innerHTML = `<strong>${term}</strong><p>${definition.description}</p>`;
+    tooltip.innerHTML = `<h3>${term}</h3><p>${definition.description}</p>`;
     tooltip.classList.add('visible');
     
     // Position tooltip near cursor
